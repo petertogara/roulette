@@ -1,8 +1,11 @@
 package com.playsafe.roullette.controller;
 
 import com.playsafe.roullette.controller.core.Core;
+import com.playsafe.roullette.controller.reader.InputReader;
 import com.playsafe.roullette.utils.Printer;
 import lombok.AllArgsConstructor;
+
+import java.io.IOException;
 
 import static java.lang.String.format;
 
@@ -15,7 +18,13 @@ public class GameEntry {
     private final Printer printer;
     private final Core core;
 
-    public void start() {
+    public GameEntry(InputReader inputReader, Printer printer, Core core) {
+        this.inputReader = inputReader;
+        this.printer = printer;
+        this.core = core;
+    }
+
+    public void start() throws IOException {
         printer.printBanner();
         printer.printRules();
         waitPlayerToContinue("load players");

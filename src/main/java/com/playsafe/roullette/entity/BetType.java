@@ -16,4 +16,11 @@ public enum BetType {
         return isNumeric(bet) ? NUMBER : ODD_EVEN;
     }
 
+    public double getMultiplier() {
+        return multiplier;
+    }
+
+    public void setMultiplier(double multiplier) {
+        this.multiplier = multiplier;
+    }
 }

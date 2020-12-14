@@ -41,7 +41,7 @@ public class GameResultClaculator {
             Result result = getBetStrategy(betType).getResult(number, bet);
             double bettingSum = playerBet.getSum();
             double winnings = calculateWinnings(result, betType, bettingSum);
-            return PlayerResult.builder()
+            return PlayerResult.builder
                     .player(playerBet.getPlayer())
                     .bet(bet)
                     .winnings(winnings)

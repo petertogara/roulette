@@ -16,11 +16,11 @@ import static java.util.function.UnaryOperator.identity;
 import static java.util.stream.Collectors.toMap;
 
 @Component
-public class DefaultPlayerService implements PlayerService {
+public class DefaultPlayerServiceImpl implements PlayerService {
 
     private final Map<String, Player> playersMap;
 
-    public DefaultPlayerService(PlayerRepository playerRepository) throws IOException {
+    public DefaultPlayerServiceImpl(PlayerRepository playerRepository) throws IOException {
         this.playersMap = playerRepository.findAll().stream()
                 .collect(toMap(Player::getName, identity()));
     }

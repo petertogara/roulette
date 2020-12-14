@@ -1,5 +1,9 @@
 package com.playsafe.roullette.controller.core.context.strategy;
 
+import com.playsafe.roullette.entity.BetType;
+
+import static com.playsafe.roullette.entity.BetType.NUMBER;
+
 @Component
 public class NumberStrategy implements Strategy {
 

@@ -1,5 +1,8 @@
 package com.playsafe.roullette.controller.core.context.strategy;
 
+import com.playsafe.roullette.entity.BetType;
+import com.playsafe.roullette.entity.OddEvenType;
+
 @Component
 public class OddEvenStrategy implements Strategy {
 
