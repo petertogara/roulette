@@ -12,6 +12,7 @@ import java.util.Collection;
 import java.util.stream.Stream;
 
 import static com.playsafe.roullette.utils.File.loadClassPathFileContent;
+import static java.lang.String.format;
 
 @Component
 @AllArgsConstructor
@@ -20,6 +21,10 @@ public class Printer {
     private static final String BANNER_FILE_NAME = "banner.txt";
 
     private final PlayerService playerService;
+
+    public Printer(PlayerService playerService) {
+        this.playerService = playerService;
+    }
 
     public void printBanner() {
         try (Stream<String> stream = loadClassPathFileContent(BANNER_FILE_NAME)) {
