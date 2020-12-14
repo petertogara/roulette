@@ -1,4 +1,4 @@
-package com.playsafe.roullette.service;
+package com.playsafe.roullette.service.api;
 
 import com.playsafe.roullette.entity.Player;
 import com.playsafe.roullette.entity.PlayerResult;
