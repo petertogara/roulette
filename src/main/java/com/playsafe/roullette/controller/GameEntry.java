@@ -1,7 +1,10 @@
 package com.playsafe.roullette.controller;
 
 import com.playsafe.roullette.controller.core.Core;
+import com.playsafe.roullette.utils.Printer;
 import lombok.AllArgsConstructor;
+
+import static java.lang.String.format;
 
 @Component
 @AllArgsConstructor
@@ -9,14 +12,14 @@ public class GameEntry {
 
 
     private final InputReader inputReader;
-    private final ConsolePrinter consolePrinter;
+    private final Printer printer;
     private final Core core;
 
     public void start() {
-        consolePrinter.printBanner();
-        consolePrinter.printRules();
+        printer.printBanner();
+        printer.printRules();
         waitPlayerToContinue("load players");
-        consolePrinter.printPlayers();
+        printer.printPlayers();
         waitPlayerToContinue("start the game");
         core.init();
     }

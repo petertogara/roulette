@@ -2,8 +2,6 @@ package com.playsafe.roullette;
 
 import com.playsafe.roullette.config.Config;
 import com.playsafe.roullette.controller.GameEntry;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class RoulletteApplication {
 
