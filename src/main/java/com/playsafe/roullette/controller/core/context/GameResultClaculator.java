@@ -1,10 +1,11 @@
 package com.playsafe.roullette.controller.core.context;
 
-import com.playsafe.roullette.controller.core.context.strategy.Strategy;
+import com.playsafe.roullette.controller.core.context.strategy.api.Strategy;
 import com.playsafe.roullette.entity.BetType;
 import com.playsafe.roullette.entity.PlayerBet;
 import com.playsafe.roullette.entity.PlayerResult;
 import com.playsafe.roullette.entity.Result;
+import org.springframework.stereotype.Component;
 
 import java.util.Collection;
 import java.util.List;

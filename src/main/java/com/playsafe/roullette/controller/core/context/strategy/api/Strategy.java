@@ -1,4 +1,4 @@
-package com.playsafe.roullette.controller.core.context.strategy;
+package com.playsafe.roullette.controller.core.context.strategy.api;
 
 import com.playsafe.roullette.entity.BetType;
 import com.playsafe.roullette.entity.Result;

@@ -4,6 +4,7 @@ package com.playsafe.roullette.controller.core.context;
 import com.playsafe.roullette.entity.PlayerBet;
 import com.playsafe.roullette.entity.PlayerResult;
 import com.playsafe.roullette.entity.RoundResult;
+import org.springframework.stereotype.Component;
 
 import java.util.Collection;
 import java.util.List;

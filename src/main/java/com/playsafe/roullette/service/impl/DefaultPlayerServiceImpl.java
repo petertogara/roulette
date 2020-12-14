@@ -5,6 +5,7 @@ import com.playsafe.roullette.entity.Player;
 import com.playsafe.roullette.entity.PlayerResult;
 import com.playsafe.roullette.repository.api.PlayerRepository;
 import com.playsafe.roullette.service.api.PlayerService;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.Collection;

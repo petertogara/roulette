@@ -5,8 +5,10 @@ import com.playsafe.roullette.entity.Player;
 import com.playsafe.roullette.entity.PlayerBet;
 import com.playsafe.roullette.service.api.PlayerService;
 import lombok.SneakyThrows;
+import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 
 import static com.playsafe.roullette.utils.Validation.*;
 import static java.lang.String.format;
@@ -25,13 +27,13 @@ public class DefaultInputReader implements InputReader {
     }
 
     @SneakyThrows
-    public PlayerBet readBet() {
+    public PlayerBet readBet() throws IOException {
         String playerInput = reader.readLine();
         return convertToBet(playerInput);
     }
 
     @SneakyThrows
-    public void waitAnyInput() {
+    public void waitAnyInput() throws IOException {
         reader.readLine();
     }
 

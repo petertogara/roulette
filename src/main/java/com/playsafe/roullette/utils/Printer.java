@@ -7,6 +7,7 @@ import com.playsafe.roullette.service.api.PlayerService;
 import de.vandermeer.asciitable.AT_Row;
 import de.vandermeer.asciitable.AsciiTable;
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.Collection;

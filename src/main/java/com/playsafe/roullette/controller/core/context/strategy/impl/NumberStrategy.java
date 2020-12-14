@@ -1,6 +1,8 @@
-package com.playsafe.roullette.controller.core.context.strategy;
+package com.playsafe.roullette.controller.core.context.strategy.impl;
 
+import com.playsafe.roullette.controller.core.context.strategy.api.Strategy;
 import com.playsafe.roullette.entity.BetType;
+import org.springframework.stereotype.Component;
 
 import static com.playsafe.roullette.entity.BetType.NUMBER;
 

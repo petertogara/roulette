@@ -3,6 +3,7 @@ package com.playsafe.roullette.repository.impl;
 
 import com.playsafe.roullette.entity.Player;
 import com.playsafe.roullette.repository.api.PlayerRepository;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.List;
