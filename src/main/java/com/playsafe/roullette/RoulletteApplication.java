@@ -1,13 +1,12 @@
 package com.playsafe.roullette;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
 public class RoulletteApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(RoulletteApplication.class, args);
-    }
 
+    public static void main(String[] args) {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(RouletteGameConfiguration.class);
+        RouletteGameStarter rouletteGameStarter = applicationContext.getBean(RouletteGameStarter.class);
+        rouletteGameStarter.start();
+    }
 }
