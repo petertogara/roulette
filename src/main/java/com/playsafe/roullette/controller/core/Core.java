@@ -4,6 +4,7 @@ package com.playsafe.roullette.controller.core;
 import com.playsafe.roullette.controller.core.context.GameContext;
 import com.playsafe.roullette.entity.PlayerBet;
 import com.playsafe.roullette.entity.RoundResult;
+import com.playsafe.roullette.service.api.PlayerService;
 import com.playsafe.roullette.utils.Printer;
 import lombok.Value;
 
@@ -45,7 +46,7 @@ public class Core {
                 gameContext.bet(playerBet);
                 printer.printThxForBet();
             } catch (Exception ex) {
-                consolePrinter.printUserBetException(ex.getMessage());
+                printer.printUserBetException(ex.getMessage());
             }
         }
     }

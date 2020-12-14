@@ -7,8 +7,8 @@ import static org.apache.commons.lang3.StringUtils.isNumeric;
 @Getter
 @AllArgsConstructor
 public enum BetType {
-    NUMBER(36.0),
-    ODD_EVEN(2.0);
+    NUMBER(),
+    ODD_EVEN();
 
     private double multiplier;
 
@@ -16,4 +16,11 @@ public enum BetType {
         return isNumeric(bet) ? NUMBER : ODD_EVEN;
     }
 
+    public double getMultiplier() {
+        return multiplier;
+    }
+
+    public void setMultiplier(double multiplier) {
+        this.multiplier = multiplier;
+    }
 }

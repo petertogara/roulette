@@ -7,11 +7,15 @@ import com.playsafe.roullette.service.api.PlayerService;
 import de.vandermeer.asciitable.AT_Row;
 import de.vandermeer.asciitable.AsciiTable;
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.util.Collection;
 import java.util.stream.Stream;
 
 import static com.playsafe.roullette.utils.File.loadClassPathFileContent;
+import static de.vandermeer.skb.interfaces.transformers.textformat.TextAlignment.CENTER;
+import static java.lang.String.format;
 
 @Component
 @AllArgsConstructor
@@ -21,7 +25,11 @@ public class Printer {
 
     private final PlayerService playerService;
 
-    public void printBanner() {
+    public Printer(PlayerService playerService) {
+        this.playerService = playerService;
+    }
+
+    public void printBanner() throws IOException {
         try (Stream<String> stream = loadClassPathFileContent(BANNER_FILE_NAME)) {
             stream.forEach(System.out::println);
         }
@@ -57,7 +65,7 @@ public class Printer {
                         .map(result -> new String[]{
                                 result.getPlayer().getName(),
                                 result.getBet(),
-                                result.getOutcome().name(),
+                                result.getResult().name(),
                                 String.valueOf(result.getWinnings())}));
     }
 
