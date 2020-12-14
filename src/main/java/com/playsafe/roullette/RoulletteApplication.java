@@ -7,7 +7,7 @@ public class RoulletteApplication {
 
     public static void main(String[] args) {
         ApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
-        GameEntry rouletteGameStarter = context.getBean(GameEntry.class);
-        rouletteGameStarter.start();
+        GameEntry gameEntry= context.getBean(GameEntry.class);
+        gameEntry.start();
     }
 }
