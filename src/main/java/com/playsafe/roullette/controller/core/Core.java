@@ -2,15 +2,21 @@ package com.playsafe.roullette.controller.core;
 
 
 import com.playsafe.roullette.controller.core.context.GameContext;
+import com.playsafe.roullette.entity.PlayerBet;
+import com.playsafe.roullette.entity.RoundResult;
+import com.playsafe.roullette.utils.Printer;
+import lombok.Value;
 
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Component
 public class Core {
 
     private final InputReader inputReader;
-    private final ConsolePrinter consolePrinter;
+    private final Printer printer;
     private final long roundCooldown;
     private final GameContext gameContext;
     private final PlayerService playerService;
@@ -18,12 +24,12 @@ public class Core {
     private final AtomicBoolean isActive;
 
     public Core(InputReader inputReader,
-                      ConsolePrinter consolePrinter,
+                      Printer printer,
                       GameContext gameContext,
                       PlayerService playerService,
                       @Value("${round.cooldownMs}") long roundCooldown) {
         this.inputReader = inputReader;
-        this.consolePrinter = consolePrinter;
+        this.printer = printer;
         this.roundCooldown = roundCooldown;
         this.gameContext = gameContext;
         this.playerService = playerService;
@@ -37,7 +43,7 @@ public class Core {
             try {
                 PlayerBet playerBet = inputReader.readBet();
                 gameContext.bet(playerBet);
-                consolePrinter.printThxForBet();
+                printer.printThxForBet();
             } catch (Exception ex) {
                 consolePrinter.printUserBetException(ex.getMessage());
             }
@@ -49,7 +55,7 @@ public class Core {
     }
 
     private void startRoundTimer() {
-        startRound();
+        RoundInit();
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
@@ -60,14 +66,14 @@ public class Core {
 
     private void finishRound() {
         RoundResult roundResult = gameContext.finishRound();
-        consolePrinter.printRoundResult(roundCounter.intValue(), roundResult);
+        printer.printRoundResult(roundCounter.intValue(), roundResult);
         playerService.updateResults(roundResult.getPlayerResults());
-        consolePrinter.printPlayers();
-        startRound();
+        printer.printPlayers();
+        RoundInit();
     }
 
-    private void startRound() {
+    private void RoundInit() {
         roundCounter.incrementAndGet();
-        consolePrinter.printStartRoundMessage(roundCounter.intValue());
+        printer.printStartRoundMessage(roundCounter.intValue());
     }
 }
