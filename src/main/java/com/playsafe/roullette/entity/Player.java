@@ -3,8 +3,9 @@ package com.playsafe.roullette.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-@Data
+
 @AllArgsConstructor
+@Data
 public class Player {
     private String name;
     private Double totalBet;
